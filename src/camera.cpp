@@ -5,6 +5,7 @@ bool camera_mirror_horizontal_state = 1;
 
 //Initialize the camera drive
 int camera_init(void) {
+    Serial.print("hola");
   camera_config_t config;
   /*config.ledc_channel = LEDC_CHANNEL_0;
   config.ledc_timer = LEDC_TIMER_0;
