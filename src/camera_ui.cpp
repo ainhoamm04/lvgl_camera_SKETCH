@@ -111,17 +111,19 @@ static void camera_imgbtn_photo_event_handler(lv_event_t *e) {
   }
 }
 
-
-
-
 //Click the logo icon, callback function: goes to the main ui interface
 static void camera_imgbtn_home_event_handler(lv_event_t *e) {
   lv_event_code_t code = lv_event_get_code(e);
 
-    if (code == LV_EVENT_CLICKED) {
+  switch (code) {
+    case LV_EVENT_CLICKED:
+      {
         Serial.println("Clicked the home button.");
-        back_to_main_menu(e); // Llamada a la función
-    }
+      }
+      break;
+    default:
+      break;
+  }
 }
 
 //Slide the screen to flip the screen
