@@ -11,7 +11,7 @@ void setup(){
     /* prepare for possible serial debug */
     Serial.begin( 115200 );
     Serial.setDebugOutput(true);
-    /*** Init drivers ***/   
+    /*** Init drivers ***/
     sdcard_init();       //Initialize the SD_MMC module
     camera_init();       //Initialize the camera drive
     screen.init();       //Initialize the Screen
@@ -20,7 +20,7 @@ void setup(){
     LVGL_Arduino += String('V') + lv_version_major() + "." + lv_version_minor() + "." + lv_version_patch();
     Serial.println( LVGL_Arduino );
     Serial.println( "I am LVGL_Arduino" );
-    
+
     setup_scr_camera(&guider_camera_ui);//Initialize the camera UI
     lv_scr_load(guider_camera_ui.camera);//loading UI
 
