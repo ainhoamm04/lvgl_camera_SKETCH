@@ -24,4 +24,5 @@ void loopTask_camera(void *pvParameters);    //camera task thread
 void ui_set_photo_show(void);                //Initialize an lvgl image variable
 void setup_scr_camera(lvgl_camera_ui *ui);   //Parameter configuration function on the camera screen
 
+void back_to_main_menu(lv_event_t * e);
 #endif
