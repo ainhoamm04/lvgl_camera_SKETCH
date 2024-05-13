@@ -1,7 +1,6 @@
 #include "camera_ui.h"
 #include "camera.h"
 #include "sd_card.h"
-//#include "main_ui.h"
 #include "lv_img.h"
 
 lv_img_dsc_t photo_show;          //apply an lvgl image variable
@@ -16,7 +15,7 @@ void create_camera_task(void) {
   if (camera_task_flag == 0) {
     camera_task_flag = 1;
     ui_set_photo_show();
-    disableCore0WDT();
+    //disableCore0WDT();
     xTaskCreate(loopTask_camera, "loopTask_camera", 8192, NULL, 1, &cameraTaskHandle);
   } else {
     Serial.println("loopTask_camera is running...");
@@ -119,20 +118,7 @@ static void camera_imgbtn_home_event_handler(lv_event_t *e) {
   switch (code) {
     case LV_EVENT_CLICKED:
       {
-        Serial.println("Clicked the freenove button.");
-      }
-      break;
-    case LV_EVENT_RELEASED:
-      {
-        /*
-        stop_camera_task();
-        if (!lv_obj_is_valid(guider_main_ui.main))
-          setup_scr_main(&guider_main_ui);
-        lv_disp_t *d = lv_obj_get_disp(lv_scr_act());
-        if (d->prev_scr == NULL && d->scr_to_load == NULL)
-          lv_scr_load(guider_main_ui.main);
-        lv_obj_del(guider_camera_ui.camera);
-        */
+        Serial.println("Clicked the home button.");
       }
       break;
     default:
